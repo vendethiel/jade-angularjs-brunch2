@@ -28,5 +28,5 @@
   "devDependencies": {
     "mocha": "1.2.2",
     "chai": "1.1.0"
-  },
+  }
 }
