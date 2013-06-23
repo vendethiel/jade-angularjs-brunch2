@@ -78,23 +78,22 @@ module.exports = class JadeAngularJsCompiler
 
   writeModules: (modules) ->
     content = ""
-    console.log 'e'
     for own moduleName, templates of modules
       content += """
                 angular.module('#{moduleName}', [])
+                    .run(['$templateCache', function($templateCache) {\n
                 """
       templates.map (e, i) =>
         inlineContent = @parseStringToJSArray(e.content)
         content +=  """
-                    \n.run(['$templateCache', function($templateCache) {
-                      return $templateCache.put('#{e.virtualPath}', #{inlineContent});
-                    }])
+                      $templateCache.put('#{e.virtualPath}', #{inlineContent});\n
                     """
 
-      content += ";\n\n"
+      content += "}]);\n\n"
 
-    writer = fileWriter sysPath.join @public, 'js', 'templates.js'
-    writer null, content
+    if content
+      writer = fileWriter sysPath.join @public, 'js', 'templates.js'
+      writer null, content
 
   #TODO: сделать async
   prepareResult: (compiled) ->

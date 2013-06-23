@@ -1,6 +1,6 @@
 {
   "name": "jade-angularjs-brunch2",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Adds Jade support to brunch with angularjs template cache modules.",
   "author": "Nami-Doc",
   "contributors": [{
