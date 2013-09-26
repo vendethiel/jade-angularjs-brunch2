@@ -22,18 +22,6 @@ module.exports = class JadeAngularJsCompiler
     @locals = config.plugins?.jade_angular?.locals
     @modulesFolder = config.plugins?.jade_angular?.modules_folder
 
-  compile: (data, path, callback) ->
-    try
-      content = jade.compile data, 
-        compileDebug: no,
-        client: no,
-        filename: path,
-        pretty: @pretty
-    catch err
-      error = err
-    finally
-      callback error, ""
-
   preparePair: (pair) ->
     pair.path.push(pair.path.pop()[...-@extension.length] + 'html')
     pair.path.splice 0, 1, @public
