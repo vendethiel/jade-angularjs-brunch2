@@ -1,6 +1,9 @@
 jade-angularjs-brunch2
 =====================
 
+
+### **DEPRECATED**. Use the @GulinSS's version instead.
+
 Automatic compiler Jade templates to AngularJS modules for Brunch.IO
 
 Based of @GulinSS's work.
